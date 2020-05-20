@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { 
+    SafeAreaView, 
     ScrollView, 
     View, 
     Text, 
-    TouchableOpacity 
+    TouchableOpacity,
+    Alert,
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import InputField from '~_components/Form/InputField';
-import { authActions, alertActions } from '~_store/_actions';
+import InputField from '_molecules/Form/InputField';
+import { authActions, alertActions } from '_actions';
+import { onDownloadFile } from '_services/custom-function.service';
+import { API_STORAGE_URL } from '_services/global-variables';
 import styles from './styles';
 
 const LoginScreen = ({navigation}) => {
@@ -36,7 +40,7 @@ const LoginScreen = ({navigation}) => {
     const onSubmit = async () => {
         try {
             await dispatch(alertActions.setScreenLoading(true));
-            const { data } = await dispatch(authActions.register(registerForm));
+            const { user } = await dispatch(authActions.register(registerForm));
             setRegisterForm({
                 firstName: '',
                 middleName: '',
@@ -47,6 +51,15 @@ const LoginScreen = ({navigation}) => {
                 password: '',
                 confirmPassword: ''
             });
+            Alert.alert(
+                'Do you want to download the QR Code?',
+                "Please click 'Yes' to download the QR Code so that you will have a copy of it. Also here's your serial no. '" + user.detail.serialNo + "'.",
+                [
+                    { text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel' },
+                    { text: 'Yes', onPress: () => onDownloadFile(API_STORAGE_URL + user.detail.qrCode) },
+                ],
+                { cancelable: false }
+            );
             await dispatch(alertActions.setScreenLoading(false));
             navigation.navigate('Login');
         } catch ( err ) {
@@ -59,7 +72,7 @@ const LoginScreen = ({navigation}) => {
     }
 
     return (
-        <View style={ styles.container }>
+        <SafeAreaView style={ styles.container }>
             <ScrollView contentContainerStyle={ styles.scrollContainer }>
                 <View style={{ marginHorizontal: 10 }}>
                     <Text style={{ fontSize: 24, fontWeight: 'bold', textAlign: 'center' }}>
@@ -145,7 +158,7 @@ const LoginScreen = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
    )
 }
 

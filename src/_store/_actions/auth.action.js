@@ -1,10 +1,11 @@
-import { authConstants, alertConstants } from '../_constants';
-import { post } from '~_services/api.service';
+import { authConstants, alertConstants } from '_constants';
+import { post } from '_services/api.service';
 
 export const authActions = {
     login,
     register,
     logout,
+    setLoggedUser,
 };
 
 function login (payload) {
@@ -34,6 +35,19 @@ function logout (payload) {
         try {
             const { data } = await post(`auth/logout`, payload);
             return data;
+        } catch (err) {
+            throw err;
+        }
+    };
+}
+
+function setLoggedUser (payload) {
+    return async (dispatch) => {
+        try {
+            await dispatch({
+                type: authConstants.SET_LOGGED_USER,
+                payload,
+            })
         } catch (err) {
             throw err;
         }

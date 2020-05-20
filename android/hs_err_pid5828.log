@@ -152,14 +152,14 @@ Java Threads: ( => current thread )
   0x000001bb05cf9800 JavaThread "Asynchronous log dispatcher for DefaultDaemonConnection: socket connection from /127.0.0.1:54752 to /127.0.0.1:51126" [_thread_blocked, id=11468, stack(0x00000049da200000,0x00000049da300000)]
   0x000001bb05d01000 JavaThread "Stdin handler" [_thread_blocked, id=10532, stack(0x00000049da300000,0x00000049da400000)]
   0x000001bb05d00000 JavaThread "Thread-174" [_thread_blocked, id=8088, stack(0x00000049da400000,0x00000049da500000)]
-  0x000001bb05d01800 JavaThread "Cache worker for file hash cache (C:\Edio\Standard\ReactNativeStandard\android\.gradle\5.5\fileHashes)" [_thread_blocked, id=14300, stack(0x00000049da500000,0x00000049da600000)]
+  0x000001bb05d01800 JavaThread "Cache worker for file hash cache (C:\Edio\Standard\TuttoBene\android\.gradle\5.5\fileHashes)" [_thread_blocked, id=14300, stack(0x00000049da500000,0x00000049da600000)]
   0x000001bb05cfc000 JavaThread "Cache worker for cache directory md-supplier (C:\Users\Fligno-Laptop-031\.gradle\caches\5.5\md-supplier)" [_thread_blocked, id=15108, stack(0x00000049da600000,0x00000049da700000)]
   0x000001bb05d05800 JavaThread "Cache worker for cache directory md-rule (C:\Users\Fligno-Laptop-031\.gradle\caches\5.5\md-rule)" [_thread_blocked, id=7988, stack(0x00000049da700000,0x00000049da800000)]
   0x000001bb05d06800 JavaThread "Build operations" [_thread_blocked, id=7192, stack(0x00000049dab00000,0x00000049dac00000)]
   0x000001bb05d02800 JavaThread "Build operations Thread 2" [_thread_blocked, id=19752, stack(0x00000049dac00000,0x00000049dad00000)]
   0x000001bb05d07800 JavaThread "Build operations Thread 3" [_thread_blocked, id=12928, stack(0x00000049dad00000,0x00000049dae00000)]
   0x000001bb05d08000 JavaThread "Build operations Thread 4" [_thread_blocked, id=876, stack(0x00000049dae00000,0x00000049daf00000)]
-  0x000001bb05d03000 JavaThread "Cache worker for Build Output Cleanup Cache (C:\Edio\Standard\ReactNativeStandard\android\.gradle\buildOutputCleanup)" [_thread_blocked, id=20420, stack(0x00000049db100000,0x00000049db200000)]
+  0x000001bb05d03000 JavaThread "Cache worker for Build Output Cleanup Cache (C:\Edio\Standard\TuttoBene\android\.gradle\buildOutputCleanup)" [_thread_blocked, id=20420, stack(0x00000049db100000,0x00000049db200000)]
   0x000001bb02d35800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=1080, stack(0x00000049db000000,0x00000049db100000)]
 
 Other Threads:
@@ -726,8 +726,8 @@ Log output configuration:
 
 Environment Variables:
 JAVA_HOME=C:\Program Files\Java\jdk-12.0.1
-CLASSPATH=C:\Edio\Standard\ReactNativeStandard\android\\gradle\wrapper\gradle-wrapper.jar
-PATH=C:\Edio\Standard\ReactNativeStandard\node_modules\.bin;C:\Program Files\Git\usr\local\share\npm\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Fligno-Laptop-031\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\xampp\php;C:\composer;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Gradle\gradle-6.0\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Android\sdk\platform-tools;C:\Users\Fligno-Laptop-031\AppData\Roaming\npm;C:\Users\Fligno-Laptop-031\AppData\Local\Microsoft\WindowsApps;C:\Users\Fligno-Laptop-031\AppData\Roaming\Composer\vendor\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Yarn\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PhpStorm 2019.2.5\bin;C:\Users\Fligno-Laptop-031\AppData\Roaming\npm;C:\Users\Fligno-Laptop-031\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Java\jdk-13.0.1\bin;C:\Program Files\heroku\bin
+CLASSPATH=C:\Edio\Standard\TuttoBene\android\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Edio\Standard\TuttoBene\node_modules\.bin;C:\Program Files\Git\usr\local\share\npm\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Fligno-Laptop-031\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\xampp\php;C:\composer;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Gradle\gradle-6.0\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Android\sdk\platform-tools;C:\Users\Fligno-Laptop-031\AppData\Roaming\npm;C:\Users\Fligno-Laptop-031\AppData\Local\Microsoft\WindowsApps;C:\Users\Fligno-Laptop-031\AppData\Roaming\Composer\vendor\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Yarn\bin;C:\Users\Fligno-Laptop-031\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PhpStorm 2019.2.5\bin;C:\Users\Fligno-Laptop-031\AppData\Roaming\npm;C:\Users\Fligno-Laptop-031\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Java\jdk-13.0.1\bin;C:\Program Files\heroku\bin
 USERNAME=Fligno-Laptop-031
 OS=Windows_NT
 PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel

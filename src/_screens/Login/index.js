@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
-    View, 
+    SafeAreaView,
+    View,
     Text, 
     TouchableOpacity, 
     Alert 
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import InputField from '~_components/Form/InputField';
+import InputField from '_molecules/Form/InputField';
 import AsyncStorage from '@react-native-community/async-storage';
-import { authActions, alertActions } from '~_store/_actions';
-import { setToken } from '~_services/api.service';
+import { authActions, alertActions } from '_actions';
+import { setToken } from '_services/api.service';
 import styles from './styles';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ( { navigation } ) => {
 
-    // const { errorApiMessages } = useSelector( state => state.alert );
     const dispatch = useDispatch();
     const [ loginForm, setLoginForm ] = useState({
         email: '',
@@ -27,9 +27,20 @@ const LoginScreen = ({navigation}) => {
         (async () => {
             // check if authenticated
             const token = await AsyncStorage.getItem('token');
-            if ( token ) navigation.navigate('App') 
+            if ( token ) {
+                const { user_role } = JSON.parse( await AsyncStorage.getItem('user') );
+                navigateUser( user_role );
+            } 
         })();
     }, []);
+
+    const navigateUser = ( { role_id } ) => {
+        if ( [1,2].includes(role_id) ) {
+            navigation.navigate('SupervisorNavigation')
+        } else {
+            navigation.navigate('UserNavigation')
+        }
+    }
 
     const onChangeInput = (name, value) => {
         setLoginForm( data => ({
@@ -40,25 +51,19 @@ const LoginScreen = ({navigation}) => {
 
     const onLogin = async () => {
         try {
-
             await dispatch(alertActions.setScreenLoading(true));
-            const { user, token } = await dispatch(authActions.login(loginForm));
+            setErrorMessages([]);
+            const { user, token } = await dispatch( authActions.login(loginForm) );
             await AsyncStorage.setItem('token', token);
             await AsyncStorage.setItem('user', JSON.stringify(user));
             await setToken();
+            await dispatch( authActions.setLoggedUser(user) )
             await dispatch(alertActions.setScreenLoading(false));
-            console.log('ahaw')
-            navigation.navigate('App');
+            navigateUser( user.user_role );
 
         } catch ( err ) {
             if(err.response && err.response.status === 422) {
                 setErrorMessages(err.response.data.errors);
-                // dispatch({
-                //     type: alertConstants.SET_ERROR_API_MESSAGE,
-                //     payload: {
-                //         login: err.response.data.errors
-                //     }
-                // })
             } else if (err.response && err.response.status === 404) {
                 Alert.alert(
                     '',
@@ -71,10 +76,10 @@ const LoginScreen = ({navigation}) => {
     }
 
     return (
-        <View style={ styles.container }>
+        <SafeAreaView style={ styles.container }>
             <View style={{ marginHorizontal: 10 }}>
                 <Text style={{ fontSize: 24, fontWeight: 'bold', textAlign: 'center' }}>
-                    Login Page
+                    TUTTO BENE
                 </Text>
             </View>
             <View style={{  }}>
@@ -113,7 +118,7 @@ const LoginScreen = ({navigation}) => {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

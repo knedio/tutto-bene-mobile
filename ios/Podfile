@@ -1,8 +1,11 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'ReactNativeStandard' do
-  # Pods for ReactNativeStandard
+target 'TuttoBene' do
+
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  # Pods for TuttoBene
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +37,9 @@ target 'ReactNativeStandard' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'ReactNativeStandardTests' do
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+
+  target 'TuttoBeneTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +47,10 @@ target 'ReactNativeStandard' do
   use_native_modules!
 end
 
-target 'ReactNativeStandard-tvOS' do
-  # Pods for ReactNativeStandard-tvOS
+target 'TuttoBene-tvOS' do
+  # Pods for TuttoBene-tvOS
 
-  target 'ReactNativeStandard-tvOSTests' do
+  target 'TuttoBene-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

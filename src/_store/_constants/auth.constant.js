@@ -1,3 +1,3 @@
 export const authConstants = {
-    LOGGED_USER: 'LOGGED_USER',
+    SET_LOGGED_USER: 'SET_LOGGED_USER',
 }

@@ -1,4 +1,4 @@
-import { authConstants } from '../_constants';
+import { authConstants } from '_constants';
 
 const initialState = {
     loggedUser: {},
@@ -6,8 +6,11 @@ const initialState = {
 
 export default auth = ( state = initialState , {type, payload} ) => {
     switch ( type ) {
-        case authConstants.LOGGED_USER:
-            return;
+        case authConstants.SET_LOGGED_USER:
+            return {
+                ...state,
+                loggedUser: payload
+            };
         default:
             return state;
     }
